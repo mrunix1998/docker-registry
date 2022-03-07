@@ -14,9 +14,9 @@ services:
     image: jc21/registry-ui
     container_name: registry-ui
     environment:
-      - REGISTRY_HOST=registry.shetab.ir
+      - REGISTRY_HOST=registry.regitstry.com
       - REGISTRY_SSL=true
-      - REGISTRY_DOMAIN=registry.shetab.ir
+      - REGISTRY_DOMAIN=registry.regitstry.com
       - REGISTRY_STORAGE_DELETE_ENABLED=1
       - REGISTRY_USER=admin
       - REGISTRY_PASS=changeit
