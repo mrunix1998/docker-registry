@@ -1,17 +1,17 @@
 <div align="center">
-    <h3 align="center">Shetab-Docker-Registry v1</h3>
+    <h3 align="center">Docker-Registry v1</h3>
 </div>
 
-* images
+# Order of running bash scripts
 * registry
 * nginx
 
 
-![Visits Badge](https://badges.pufler.dev/visits/mrunix1998/docker-minio-cluster)
-![GitHub last commit](https://img.shields.io/github/last-commit/mrunix1998/docker-minio-cluster)
-[![GitHub issues](https://img.shields.io/github/issues/mrunix1998/docker-minio-cluster)](https://github.com/mrunix1998/docker-minio-cluster/issues)
-[![GitHub stars](https://img.shields.io/github/stars/mrunix1998/docker-minio-cluster)](https://github.com/mrunix1998/docker-minio-cluster/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/mrunix1998/docker-minio-cluster)](https://github.com/mrunix1998/docker-minio-cluster/network)
+![Visits Badge](https://badges.pufler.dev/visits/mrunix1998/docker-registry)
+![GitHub last commit](https://img.shields.io/github/last-commit/mrunix1998/docker-registry)
+[![GitHub issues](https://img.shields.io/github/issues/mrunix1998/docker-registry)](https://github.com/mrunix1998/docker-registry/issues)
+[![GitHub stars](https://img.shields.io/github/stars/mrunix1998/docker-registry)](https://github.com/mrunix1998/docker-registry/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/mrunix1998/docker-registry)](https://github.com/mrunix1998/docker-registry/network)
 [![made-with-bash](https://img.shields.io/badge/Made%20with-Bash-1f425f.svg)](https://www.gnu.org/software/bash/)
 
 
