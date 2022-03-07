@@ -50,7 +50,7 @@ if [ "$1" = "up" ]; then
         echo '[>] -------------------------------------------------------------------------------------------- [<]'
         figlet -ptk -f slant Docker-Registry
         docker-compose -f nginx.yml up -d
-        echo '\e[32m[>] All nginx files : /mnt/docker/apps/nginx/ \e[39m'
+        echo -e '\e[32m[>] All nginx files : /mnt/docker/apps/nginx/ \e[39m'
         echo '[>] -------------------------------------------------------------------------------------------- [<]'
 
         exit 0
