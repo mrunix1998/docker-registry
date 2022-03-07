@@ -161,3 +161,9 @@ docker push registry.example.com:443/<someimage>:<tag>
 ```bash
 docker pull registry.example.com:443/<someimage>:<tag>
 ```
+
+**You should use registry api in ui with following url** :
+
+```bash
+https://registry.salehi.ir/v2/_catalog
+```
