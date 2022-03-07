@@ -102,7 +102,8 @@ bash create_reg_user.sh
 
 - Finally, run start up script to run registry and registry ui container:
 
-**Note** : Notice that on line 22 change registry admin password.
+**Note** : Notice that on line 22 in registry.yml change registry admin password.
+**Note** : After runing registry and registry-ui, restart nginx again.
 
 ```bash
  bash setup.sh up
