@@ -45,6 +45,8 @@ if [ "$1" = "up" ]; then
         docker images | grep registry | grep 2.7 &> /dev/null
         if [ "$?" != "0" ] ; then
                 echo -e "\e[31m[>] Can not find registry 2.7 image\e[39m"
+                echo -e "\e[32m[>] You should pull it with below commad :\e[39m"
+                echo -e "\e[36m[>] docker pull registry:2.7 \e[39m"
                 exit 1
         fi                
         # ------------------------------------------------------------------------------------------------------------------ #

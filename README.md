@@ -1,10 +1,6 @@
 <div align="center">
-    <h3 align="center">Docker-Registry v1</h3>
+    <h1 align="center">Docker-Registry v1</h1>
 </div>
-
-# Order of running bash scripts
-* registry
-* nginx
 
 
 ![Visits Badge](https://badges.pufler.dev/visits/mrunix1998/docker-registry)
@@ -53,4 +49,77 @@ ExecStart=/usr/bin/dockerd -g /mnt/docker/lib -H fd:// --containerd=/run/contain
 ```bash
 systemctl daemon-reload
 systemctl start docker
+```
+
+## Cloning project
+
+```bash
+cd /root
+git clone https://github.com/mrunix1998/docker-registry.git
+```
+
+## Quick Start
+
+1 - Go to nginx folder :
+
+```bash
+cd /root/docker-registry/nginx/
+```
+
+- Go to certs file and run bash script to create needed certs for nginx and registry :
+
+```bash
+cd certs
+bash create_certs.sh
+```
+
+**Note** : Write your domain name in both of common name when creating certs.
+
+![](./images/1.png)
+![](./images/2.png)
+![](./images/3.png)
+
+
+- Then got to the conf.d file and change registry.conf ==> (line 11, 12, 17)
+
+- Finally, you can start up your nginx container:
+
+```bash
+bash setup.sh up
+```
+
+2 - Go to registry folder :
+
+```bash
+ cd /root/docker-registry/registry/
+```
+
+- Run create_reg_user.sh script file to create registry user :
+
+```bash
+bash create_reg_user.sh
+```
+
+- Finally, run start up script to run registry and registry ui container:
+
+```bash
+ bash setup.sh up
+```
+
+**On client** you should set below command in /etc/docker/daemon.json or update certificate to know your registry's CA.crt :
+
+ 
+```bash
+{
+  "insecure-registries" : ["registry.example.com"]
+}
+```
+
+or 
+
+- ssh CA.crt from registry vm and then run :
+
+```bash
+mkdir /usr/local/share/ca-certificates/docker-cert
+cp CA.crt /usr/local/share/ca-certificates/docker-cert
 ```
