@@ -111,8 +111,15 @@ bash create_reg_user.sh
  
 ```bash
 {
-  "insecure-registries" : ["registry.example.com"]
+  "insecure-registries": [
+    "registry.example.com:443"
+  ]
 }
+```
+
+```bash
+systemctl daemon-reload
+systemctl restart docker
 ```
 
 or 
@@ -122,4 +129,32 @@ or
 ```bash
 mkdir /usr/local/share/ca-certificates/docker-cert
 cp CA.crt /usr/local/share/ca-certificates/docker-cert
+```
+
+```bash
+systemctl restart docker
+```
+
+
+### For **login** and **taging** and **push** and **pull** images in registry you should run following commands :
+
+
+![login](https://github.githubassets.com/images/icons/emoji/unicode/1f510.png)
+```bash
+docker login registry.example.com:443
+```
+
+![Taging](https://github.githubassets.com/images/icons/emoji/unicode/1f4cc.png)
+```bash
+docker tag <someimage> registry.example.com:443/<someimage>:<tag>
+```
+
+![Pushing](https://github.githubassets.com/images/icons/emoji/unicode/1f4e5.png)
+```bash
+docker push registry.example.com:443/<someimage>:<tag>
+```
+
+![Pulling](https://github.githubassets.com/images/icons/emoji/unicode/1f4e4.png)
+```bash
+docker pull registry.example.com:443/<someimage>:<tag>
 ```

@@ -8,8 +8,8 @@ services:
       REGISTRY_STORAGE_DELETE_ENABLED: "true"
       REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: /data
     volumes:
-      - /mnt/shetab/docker/apps/registry/volume:/var/lib/registry
-      - /mnt/shetab/docker/apps/registry/data:/data
+      - /mnt/docker/apps/registry/volume:/var/lib/registry
+      - /mnt/docker/apps/registry/data:/data
   registry-ui:
     image: jc21/registry-ui
     container_name: registry-ui

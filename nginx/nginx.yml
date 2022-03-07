@@ -5,8 +5,8 @@ services:
     image: nginx:1.21.6
     restart: unless-stopped
     volumes:
-      - /mnt/shetab/docker/apps/nginx/conf.d/:/etc/nginx/conf.d/
-      - /mnt/shetab/docker/apps/nginx/certs/:/etc/nginx/certs/
+      - /mnt/docker/apps/nginx/conf.d/:/etc/nginx/conf.d/
+      - /mnt/docker/apps/nginx/certs/:/etc/nginx/certs/
     ports:
       - "80:80"
       - "443:443"
