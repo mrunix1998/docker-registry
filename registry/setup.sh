@@ -19,6 +19,17 @@ if [ "$1" = "up" ]; then
         # ------------------------------------------------------------------------------------------------------------------ #
 
 
+        # check nginx image in docker localhost repo # --------------------------------------------------------------------- #
+        docker images | grep nginx | grep 1.21.6 &> /dev/null
+        if [ "$?" != "0" ] ; then
+                echo -e "\e[31m[>] Can not find nginx latest image\e[39m"
+                echo -e "\e[32m[>] You should pull it with below commad :\e[39m"
+                echo -e "\e[36m[>] docker pull nginx:1.21.6 \e[39m"
+                exit 1
+        fi
+        # ------------------------------------------------------------------------------------------------------------------ #
+
+
         # Check registry-ui image in docker localhost repo # --------------------------------------------------------------- #
         docker images | grep jc21/registry-ui | grep latest &> /dev/null
         if [ "$?" != "0" ] ; then
@@ -55,12 +66,30 @@ if [ "$1" = "up" ]; then
         # Launch project # ------------------------------------------------------------------------------------------------- #
         echo '[>] -------------------------------------------------------------------------------------------- [<]'
         figlet -ptk -f slant Docker-Registry
-            docker-compose -f registry.yml up -d
-        echo -e '\e[32m[>] All nginx files : /mnt/docker/apps/registry/\e[39m'
+        docker-compose -f registry.yml up -d
+        echo -e '\e[32m[>] All registry files : /mnt/docker/apps/registry/\e[39m'
+        echo -e '\e[32m[>] All nginx files : /mnt/docker/apps/nginx/ \e[39m'        
         echo '[>] -------------------------------------------------------------------------------------------- [<]'
 
             exit 0
         # ------------------------------------------------------------------------------------------------------------------ #
+
+
+        # move dirs to /mnt/docker/apps/jira/ # --------------------------------------------------------------------- #
+        mkdir /mnt/docker/apps/nginx -p &> /dev/null
+        if [ ! -d /mnt/docker/apps/nginx/certs ] ; then
+                cp -r nginx/certs /mnt/docker/apps/nginx/
+        fi
+
+        if [ ! -d /mnt/docker/apps/nginx/conf.d ] ; then
+                cp -r nginx/conf.d /mnt/docker/apps/nginx/
+        fi
+
+        if [ ! -d /mnt/docker/apps/nginx/etc ] ; then
+                cp -r nginx/etc /mnt/docker/apps/nginx/
+        fi
+        # ------------------------------------------------------------------------------------------------------------------ #
+
 
 elif [ "$1" = "down" ]; then
 
@@ -84,6 +113,11 @@ elif [ "$1" = "down" ]; then
         # print msg in terminal # ------------------------------------------------------------------------------------------ #
         echo -en "\e[31m[>] It will be delete all files and certs [press to continue] \e[39m" ; read q
         unset q
+        # ------------------------------------------------------------------------------------------------------------------ #
+
+
+        # remove all nginx files # ----------------------------------------------------------------------------------------- #
+        rm -rf /mnt/docker/apps/nginx/ &> /dev/null
         # ------------------------------------------------------------------------------------------------------------------ #
 
 

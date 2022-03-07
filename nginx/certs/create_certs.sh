@@ -15,12 +15,12 @@ openssl req -x509 -new -nodes -key CA.key -days 10000 -out CA.crt
 
 # Create csr for authenticate # ---------------------------------------------------------------------------------------- #
 openssl genrsa -out domain.key 2048
-openssl req -new -key domain.key -out registry.shetab.ir.csr
+openssl req -new -key domain.key -out registry.salehi.ir.csr
 # ---------------------------------------------------------------------------------------------------------------------- #
 
 
 # Validate certificate # ----------------------------------------------------------------------------------------------- #
-openssl x509 -req -in registry.shetab.ir.csr -CA CA.crt -CAkey CA.key -CAcreateserial -out domain.crt -days 3650
+openssl x509 -req -in registry.salehi.ir.csr -CA CA.crt -CAkey CA.key -CAcreateserial -out domain.crt -days 3650
 # ---------------------------------------------------------------------------------------------------------------------- #
 
 
@@ -45,7 +45,7 @@ sleep 1
 # Delete useless files # ----------------------------------------------------------------------------------------------- #
 echo -en "\033[0;31mRemove useless files\033[0m"
 echo
-rm registry.shetab.ir.csr
+rm registry.salehi.ir.csr
 sleep 1
 # ---------------------------------------------------------------------------------------------------------------------- #
 
